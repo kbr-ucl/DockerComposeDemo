@@ -6,14 +6,13 @@ public class IndexModel : PageModel
 {
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly ILogger<IndexModel> _logger;
+    public IEnumerable<WeatherForecast>? WeatherForecasts { get; set; }
 
     public IndexModel(ILogger<IndexModel> logger, IHttpClientFactory httpClientFactory)
     {
         _logger = logger;
         _httpClientFactory = httpClientFactory;
     }
-
-    public IEnumerable<WeatherForecast>? WeatherForecasts { get; set; }
 
     public async Task OnGet()
     {
