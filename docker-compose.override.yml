@@ -1,0 +1,25 @@
+services:
+  webapplication:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - WeatherApiUrl=http://apiapplication:8080 
+    ports:
+      - "8080:8080"
+    depends_on:
+      - apiapplication
+    networks:
+    - weathernet
+
+  apiapplication:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8090:8080"
+    networks:
+    - weathernet
+
+networks:
+   weathernet:
+     driver: bridge

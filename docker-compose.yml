@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  webapplication:
+    image: ${DOCKER_REGISTRY-}webapplication
+    build:
+      context: .
+      dockerfile: WebApplication/Dockerfile
+
+  apiapplication:
+    image: ${DOCKER_REGISTRY-}apiapplication
+    build:
+      context: .
+      dockerfile: ApiApplication/Dockerfile
+
