@@ -1,5 +1,7 @@
+using WebApplication.ClientProxy;
+
 var builder = Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);
-builder.Services.AddHttpClient("WeatherApi",options =>
+builder.Services.AddHttpClient<IWeatherServerProxy, WeatherServerProxy>(options =>
 {
     options.BaseAddress = new Uri(builder.Configuration["WeatherApiUrl"]);
 });
